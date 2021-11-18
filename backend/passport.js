@@ -1,22 +1,27 @@
 const GithubStrategy = require("passport-github2").Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
 const passport = require("passport");
+const dotenv = require("dotenv");
 const User = require("./models/User");
-var findOrCreate = require("mongoose-findorcreate");
 
-GITHUB_CLIENT_ID = "Iv1.f0be3173830dd41e";
-GITHUB_CLIENT_SECRET = "f3a9af8c89934b4764fc95d1d11ac05c4ed3b8f9";
+dotenv.config();
 
 passport.use(
   new GithubStrategy(
     {
-      clientID: GITHUB_CLIENT_ID,
-      clientSecret: GITHUB_CLIENT_SECRET,
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: "/auth/github/callback",
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOrCreate(
-        { githubId: profile.id, username: profile.displayName },
-        function (err, user) {
+        {
+          githubId: profile.id,
+          username: profile.displayName,
+          email: profile.emails ? profile.emails[0].value : "",
+          profilePicture: profile.photos ? profile.photos[0].value : "",
+        },
+        (err, user) => {
           console.log("New user added" + user);
           return done(err, user);
         }
@@ -24,6 +29,30 @@ passport.use(
     }
   )
 );
+
+// passport.use(
+//   new FacebookStrategy(
+//     {
+//       clientID: process.env.FACEBOOK_APP_ID,
+//       clientSecret: process.env.FACEBOOK_APP_SECRET,
+//       callbackURL: "/auth/facebook/callback",
+//     },
+//     (accessToken, refreshToken, profile, done) => {
+//       User.findOrCreate(
+//         {
+//           facebookId: profile.id,
+//           username: profile.displayName,
+//           email: profile.emails ? profile.emails[0].value : "",
+//           profilePicture: profile.photos ? profile.photos[0].value : "",
+//         },
+//         (err, user) => {
+//           console.log("New user added" + user);
+//           return done(err, user);
+//         }
+//       );
+//     }
+//   )
+// );
 
 passport.serializeUser((user, done) => {
   done(null, user);

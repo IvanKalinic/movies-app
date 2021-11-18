@@ -11,7 +11,7 @@ import Login from "../pages/Login";
 import { useUser } from "../context/UserContext";
 
 const AppRoutes = () => {
-  const { user, setUser } = useUser();
+  const { user } = useUser();
   return (
     <Router>
       <div>
