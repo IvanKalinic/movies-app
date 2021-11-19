@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const passport = require("passport");
 const dotenv = require("dotenv");
+const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 dotenv.config();
 
@@ -39,18 +41,5 @@ router.get(
     failureRedirect: "/login/failed",
   })
 );
-
-// router.get(
-//   "/facebook",
-//   passport.authenticate("facebook", { scope: ["profile,user:email"] })
-// );
-
-// router.get(
-//   "/facebook/callback",
-//   passport.authenticate("facebook", {
-//     successRedirect: process.env.CLIENT_URL,
-//     failureRedirect: "/login/failed",
-//   })
-// );
 
 module.exports = router;
