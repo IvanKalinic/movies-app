@@ -32,7 +32,7 @@ app.use(
 );
 
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect("mongodb://localhost:27017", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Github from "../../assets/img/github.png";
+import Facebook from "../../assets/img/facebook.png";
 import axios from "axios";
 import "./index.scss";
 
@@ -60,6 +61,19 @@ const Login = () => {
     }
     return;
   };
+  /*const responseFacebook = (response) => {
+    console.log(response);
+    axios({
+      method: "POST",
+      url: "http://localhost:5000/auth/facebook",
+      data: {accessToken: response.accessToken, userId: response.userId}
+    }).then(response => {
+      console.log("Facebook login success, client side", response);
+    })
+  }*/
+  const facebook = () => {
+    window.open("http://localhost:5000/auth/facebook", "_self");
+  }
 
   return (
     <div className="login">
@@ -69,6 +83,10 @@ const Login = () => {
           <div className="login-button github" onClick={github}>
             <img src={Github} alt="" className="icon" />
             Github
+          </div>
+          <div className="login-button facebook" onClick={facebook}>
+            <img src={Facebook} alt="" className="icon" />
+            Facebook
           </div>
         </div>
         <div className="center">
