@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import { useUser } from "../context/UserContext";
+import ImdbUnoficial from "../pages/ImdbUnoficial";
 
 const AppRoutes = () => {
   const { user } = useUser();
@@ -21,6 +22,10 @@ const AppRoutes = () => {
           <Route
             path="/login"
             element={user ? <Navigate to="/" /> : <Login />}
+          />
+          <Route
+            path="/imdbUnoficial"
+            element={<ImdbUnoficial/>}
           />
           {/* <Route
             path="/post/:id"

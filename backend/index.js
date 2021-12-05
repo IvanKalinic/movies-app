@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const authRoute = require("./routes/auth");
 const manualRoute = require("./routes/manual");
+const imdbUnofficialRoute = require("./routes/imdbUnofficial");
 const passportSetup = require("./passport");
 const bodyParser = require("body-parser");
 const session = require("express-session");
@@ -52,6 +53,7 @@ app.use(passport.session());
 
 app.use("/manual", manualRoute);
 app.use("/auth", authRoute);
+app.use("/imdbUnofficial", imdbUnofficialRoute);
 app.get("/", (req, res) => {
   req.header("Access-Control-Allow-Origin", "http://localhost:3000");
   req.header("Access-Control-Request-Method", "http://localhost:3000");

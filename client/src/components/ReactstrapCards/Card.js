@@ -3,8 +3,7 @@ import "./Card.scss";
 
 
 export function ReactstrapCard(props) {
-    return <div>
-        <Card className="card">
+    return <Card className="card">
                 {!!props?.picture ? <CardImg
                     alt="No image"
                     src={props.picture}
@@ -25,6 +24,5 @@ export function ReactstrapCard(props) {
                         {props?.description}
                     </CardText> : null}
                 </CardBody>
-            </Card>
-    </div>;
+            </Card>;
 }
