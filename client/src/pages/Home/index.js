@@ -8,7 +8,9 @@ const Home = () => {
     callImdbUnofficial().then((res) => console.log(res));
   }, []);
 
-  return <div>Home page</div>;
+  return <div>
+    <h1>Home page</h1>
+  </div>;
 };
 
 export default Home;
