@@ -10,6 +10,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import { useUser } from "../context/UserContext";
 import ImdbUnoficial from "../pages/ImdbUnoficial";
+import CryptoMarket from "../pages/CryptoMarket";
 
 const AppRoutes = () => {
   const { user } = useUser();
@@ -25,8 +26,11 @@ const AppRoutes = () => {
           />
           <Route
             path="/imdbUnoficial"
-            element={<ImdbUnoficial/>}
+            element={user ? <ImdbUnoficial/> : <Login />}
           />
+          <Route
+            path="/crypto"
+            element={user ? <CryptoMarket/> : <Login />}/>
           {/* <Route
             path="/post/:id"
             element={user ? <Post /> : <Navigate to="/login" />}

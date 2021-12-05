@@ -38,6 +38,7 @@ passport.use(
        callbackURL: "/auth/facebook/callback",
      },
      (accessToken, refreshToken, profile, done) => {
+         console.log(profile);
        User.findOrCreate(
          {
            facebookId: profile.id,
