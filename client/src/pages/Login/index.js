@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Github from "../../assets/img/github.png";
 import axios from "axios";
 import "./index.scss";
+import { useUser } from "../../context/UserContext";
 
 const Login = () => {
   const [loginAccordion, setLoginAccordion] = useState(false);
@@ -12,6 +13,8 @@ const Login = () => {
   const password = useRef(null);
   const passwordAgain = useRef(null);
   const navigate = useNavigate();
+  const { setUser } = useUser();
+
   const github = () => {
     window.open("http://localhost:5000/auth/github", "_self");
   };
@@ -31,13 +34,13 @@ const Login = () => {
       email: email.current.value,
       password: password.current.value,
     };
-    console.log(user);
     if (loginAccordion) {
       try {
-        await axios.post("http://localhost:5000/manual/login", {
+        const newUser = await axios.post("http://localhost:5000/manual/login", {
           user,
         });
         // handleRegister();
+        setUser(newUser);
         navigate("/");
       } catch (err) {
         console.log(err);

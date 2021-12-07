@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const trendingMovie = require("../models/trendingMovie");
+const trendingMusic = require("../models/trendingMusic");
 
 router.post("/save", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -8,20 +8,20 @@ router.post("/save", async (req, res) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   try {
-    const movies = req.body;
-    const trendingMovies = movies.map((movie) => {
+    const artists = req.body;
+    const trendingMusicList = artists.map((artist) => {
       return {
         insertOne: {
-          document: movie,
+          document: artist,
         },
       };
     });
-    trendingMovie.collection
-      .bulkWrite(trendingMovies)
+    trendingMusic.collection
+      .bulkWrite(trendingMusicList)
       .then((saved) =>
         res
           .status(200)
-          .json("succesfully saved movies" + saved.getRawResponse())
+          .json("successfully saved music" + saved.getRawResponse())
       )
       .catch((error) => console.log(error));
   } catch (err) {
@@ -32,8 +32,8 @@ router.post("/save", async (req, res) => {
 
 router.get("/all", async (req, res) => {
   try {
-    const trendingMovies = await trendingMovie.find({});
-    res.status(200).json(trendingMovies);
+    const trendingMusic = await trendingMusic.find({});
+    res.status(200).json(trendingMusic);
   } catch (err) {
     res.status(500).json(err);
   }

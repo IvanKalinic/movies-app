@@ -6,6 +6,7 @@ const cors = require("cors");
 const authRoute = require("./routes/auth");
 const manualRoute = require("./routes/manual");
 const trendingMoviesRoute = require("./routes/trendingMovies");
+const trendingMusicRoute = require("./routes/trendingMusic");
 const passportSetup = require("./passport");
 const bodyParser = require("body-parser");
 const session = require("express-session");
@@ -53,6 +54,7 @@ app.use(passport.session());
 
 app.use("/manual", manualRoute);
 app.use("/auth", authRoute);
+app.use("/trendingMusic", trendingMusicRoute);
 app.use("/trendingMovies", trendingMoviesRoute);
 app.get("/", (req, res) => {
   req.header("Access-Control-Allow-Origin", "http://localhost:3000");
