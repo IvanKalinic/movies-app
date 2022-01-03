@@ -26,7 +26,7 @@ const AppRoutes = () => {
           />
           <Route
             path="/imdbUnoficial"
-            element={user ? <ImdbUnoficial/> : <Login />}
+            element={<ImdbUnoficial/>}
           />
           <Route
             path="/crypto"

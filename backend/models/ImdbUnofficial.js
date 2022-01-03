@@ -14,6 +14,27 @@ const ImdbUnofficialSchema = new mongoose.Schema(
             type: String,
             default: "",
         },
+        year: {
+            type: Number
+        },
+        rating: {
+            type: Number
+        },
+        plot: {
+            type: String
+        },
+        actors: {
+            type: String
+        },
+        director: {
+            type: String
+        },
+        genre: {
+            type: String
+        },
+        writer: {
+            type: String
+        }
     },
     { timestamps: true }
 );

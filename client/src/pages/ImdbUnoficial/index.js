@@ -4,6 +4,8 @@ import {callImdbUnofficial} from "../../apis/imdbUnofficial";
 import {ReactstrapCard} from "../../components/ReactstrapCards/Card";
 import axios from "axios";
 import {callImdbUnofficialSpecificFilm} from "../../apis/ImdbUnofficialSpecificFilm";
+import {getMovies, getMoviesFromImdb} from "../../utils/ExtractMovies";
+import {callOmdbApiById, callOmdbApiBySearch} from "../../apis/omdbapi";
 
 const ImdbUnoficial = () => {
     const [search, setSearch] = useState("");
@@ -11,18 +13,19 @@ const ImdbUnoficial = () => {
 
     const searchMovies = () => {
         if (!!search) {
-            callImdbUnofficial(search).then((response) => {
+            callOmdbApiBySearch(search).then((response) => {
                 if (response.data !== undefined) {
-                    const ids = response.data.titles?.map(tit => tit.id) || [];
-                    axios.all(ids.map(id => callImdbUnofficialSpecificFilm(id)))
+                    console.log(response);
+                    const ids = response.data.Search?.map(s => s.imdbID) || [];
+                    axios.all(ids.map(id => callOmdbApiById(id)))
                         .then(axios.spread(function (...res) {
-                            // all requests are now complete
                             console.log(res);
+                            const movies = getMoviesFromImdb(res);
+                            setMovies(movies);
+                            axios.post("http://localhost:5000/imdbUnofficial/save", movies)
+                                .then((response) => console.log(response.data))
+                                .catch((error) => console.log(error));
                         }));
-                    setMovies(response.data.titles);
-                    axios.post("http://localhost:5000/imdbUnofficial/save", response.data.titles)
-                        .then((response) => console.log(response.data))
-                        .catch((error) => console.log(error));
                 }
             }).catch((error) => {
                 console.log(error);
