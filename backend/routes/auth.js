@@ -27,7 +27,7 @@ router.get("/login/failed", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect(process.env.CLIENT_URL);
+  res.redirect("http://localhost:3000/");
 });
 
 router.get(
@@ -41,6 +41,19 @@ router.get(
     successRedirect: process.env.CLIENT_URL,
     failureRedirect: "/login/failed",
   })
+);
+
+router.get(
+    "/facebook",
+    passport.authenticate("facebook")
+);
+
+router.get(
+    "/facebook/callback",
+    passport.authenticate("facebook", {
+      successRedirect: "http://localhost:3000",
+      failureRedirect: "/login/failed",
+    })
 );
 
 module.exports = router;

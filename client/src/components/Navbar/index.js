@@ -12,6 +12,18 @@ const Navbar = ({ user }) => {
           MyMovies
         </Link>
       </span>
+      <span/>
+      <span/>
+      <span/>
+      { user ? <>
+          <Link className="link" to="/imdbUnoficial">
+            Movies
+          </Link>
+          <Link className="link" to="/crypto">
+          Crypto
+          </Link>
+        </> : null
+      }
       {user ? (
         <ul className="list">
           <li className="list-item">
