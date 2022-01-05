@@ -44,8 +44,8 @@ const Home = () => {
 
   useEffect(() => {
     if (!user) return; //redirect to login
-    checkMusic();
-    checkMovies();
+    // checkMusic();
+    // checkMovies();
   }, [user]);
 
   return (
