@@ -1,14 +1,31 @@
+import {
+  pirates,
+  titanic,
+  whitehousedown,
+  spiderman,
+  django,
+  getsmart,
+  rockstart,
+  killbill,
+  avatar,
+  jumpstreet,
+} from "../assets/questionnaireimages/movies";
+
 export const movies = [
-  { id: 1, name: "Pirates of the Caribbean:At World's End" },
-  { id: 2, name: "Titanic" },
-  { id: 3, name: "The Amazing Spider-Man" },
-  { id: 4, name: "White House Down" },
-  { id: 5, name: "Django Unchained" },
-  { id: 6, name: "Get Smart" },
-  { id: 7, name: "Kill Bill: Vol. 2" },
-  { id: 8, name: "22 Jump Street" },
-  { id: 9, name: "Rock Star" },
-  { id: 10, name: "Avatar" },
+  {
+    id: 1,
+    name: "Pirates of the Caribbean",
+    img: pirates,
+  },
+  { id: 2, name: "Titanic", img: titanic },
+  { id: 3, name: "The Amazing Spider-Man", img: spiderman },
+  { id: 4, name: "White House Down", img: whitehousedown },
+  { id: 5, name: "Django Unchained", img: django },
+  { id: 6, name: "Get Smart", img: getsmart },
+  { id: 7, name: "Kill Bill: Vol. 2", img: killbill },
+  { id: 8, name: "22 Jump Street", img: jumpstreet },
+  { id: 9, name: "Rock Star", img: rockstart },
+  { id: 10, name: "Avatar", img: avatar },
 ];
 
 export const directors = [
