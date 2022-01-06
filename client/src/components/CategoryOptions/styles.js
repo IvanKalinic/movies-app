@@ -10,3 +10,15 @@ export const ThanksWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const ArrowWrapper = styled.img`
+  width: 100px;
+  height: 100px;
+  margin-left: -40px;
+  margin-right: 55px;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateX(4px);
+  }
+`;

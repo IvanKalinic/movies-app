@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Flex, Text } from "@chakra-ui/react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import DisplayMessage from "../DisplayMessage";
 import OptionItem from "../OptionItem";
 import { useQuestionnaire } from "../../context/QuestionnaireContext";
-import { ThanksWrapper } from "./styles";
+import { ArrowWrapper, ThanksWrapper } from "./styles";
+import ArrowRight from "../../assets/icons/icons8-right-arrow-90.png";
 
 const CategoryOptions = ({ startingIndex, categories }) => {
   const [optionsArray, setOptionsArray] = useState(categories[startingIndex]);
@@ -98,7 +98,7 @@ const CategoryOptions = ({ startingIndex, categories }) => {
         </ThanksWrapper>
       )}
       {currentIndex < 4 && (
-        <ArrowForwardIcon w={100} h={50} onClick={handleNext} style={{}} />
+        <ArrowWrapper src={ArrowRight} alt="arrow" onClick={handleNext} />
       )}
     </Flex>
   );
