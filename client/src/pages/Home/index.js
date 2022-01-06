@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { fetchTrendingMovies, fetchTrendingMusic } from "../../apis";
-import { TabList, Tab, Tabs, TabPanels, TabPanel, css } from "@chakra-ui/react";
-import TrendingMovies from "../../components/TrendingMovies";
-import TrendingMusic from "../../components/TrendingMusic";
+// import { TabList, Tab, Tabs, TabPanels, TabPanel, css } from "@chakra-ui/react";
+// import TrendingMovies from "../../components/TrendingMovies";
+// import TrendingMusic from "../../components/TrendingMusic";
+import { Box } from "@chakra-ui/react";
 import axios from "axios";
 import { useUser } from "../../context/UserContext";
+import Questionnaire from "../Questionnaire";
+import Warning from "../../components/Warning";
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -48,43 +51,7 @@ const Home = () => {
     // checkMovies();
   }, [user]);
 
-  return (
-    <div style={{ marginTop: "10px", height: "100%" }}>
-      {!user ? (
-        <div>Please login to continue!</div>
-      ) : (
-        <Tabs width="100%" size="md" isFitted variant="enclosed">
-          <TabList
-            overflowX="auto"
-            css={css({
-              scrollbarWidth: "none",
-              "::-webkit-scrollbar": { display: "none" },
-              "-webkit-overflow-scrolling": "touch",
-              boxShadow: "inset 0 -2px 0 rgba(0, 0, 0, 0.1)",
-              border: "0 none",
-            })}
-          >
-            <Tab>Trending Movies/Series</Tab>
-            <Tab>Other</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel>
-              <TrendingMovies
-                list={trendingMovies}
-                title="Trending movies/series:"
-              />
-            </TabPanel>
-            <TabPanel>
-              <TrendingMusic
-                list={trendingMusic}
-                title="Trending music artists"
-              />
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
-      )}
-    </div>
-  );
+  return <Box>{user ? <Questionnaire /> : <Warning />}</Box>;
 };
 
 export default Home;
