@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ffcb6176-30ec-4be5-b82d-bcd46bc3f9bc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Home/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="21E7rGLncrW7EHN2epakIVSr8SY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/routes" />
+      <recent name="$PROJECT_DIR$/backend/models" />
+      <recent name="$PROJECT_DIR$/client/src/pages" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start_inspect" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start_inspect" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.start_inspect" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ffcb6176-30ec-4be5-b82d-bcd46bc3f9bc" name="Changes" comment="" />
+      <created>1637494589832</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637494589832</updated>
+      <workItem from="1637494591042" duration="709000" />
+      <workItem from="1637495317543" duration="10585000" />
+      <workItem from="1638531118479" duration="52145000" />
+      <workItem from="1639394893773" duration="111000" />
+      <workItem from="1640337650369" duration="126000" />
+      <workItem from="1641119827264" duration="4020000" />
+      <workItem from="1641245969533" duration="5812000" />
+      <workItem from="1641408880696" duration="210000" />
+      <workItem from="1641409107985" duration="1032000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add facebook oauth login functionality">
+      <created>1638630673181</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638630673181</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Call imdb unofficial api">
+      <created>1638700548505</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1638700548505</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add reactstrap to client project">
+      <created>1638704404583</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1638704404583</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Saving movies from imdb unofficial">
+      <created>1638726525832</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1638726525832</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add crypto currencies api and add links to pages">
+      <created>1638738169168</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1638738169168</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Example of fetching multiple rest apis">
+      <created>1641124118996</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1641124118996</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Example of fetching multiple rest apis(2)">
+      <created>1641124360814</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1641124360814</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add facebook oauth login functionality" />
+    <MESSAGE value="Call imdb unofficial api" />
+    <MESSAGE value="Add reactstrap to client project" />
+    <MESSAGE value="Saving movies from imdb unofficial" />
+    <MESSAGE value="Add crypto currencies api and add links to pages" />
+    <MESSAGE value="Example of fetching multiple rest apis" />
+    <MESSAGE value="Example of fetching multiple rest apis(2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Example of fetching multiple rest apis(2)" />
+  </component>
+</project>

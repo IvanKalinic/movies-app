@@ -1,61 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { fetchTrendingMovies, fetchTrendingMusic } from "../../apis";
+import { fetchTrendingMovies } from "../../apis";
 import { TabList, Tab, Tabs, TabPanels, TabPanel, css } from "@chakra-ui/react";
 import TrendingMovies from "../../components/TrendingMovies";
-import TrendingMusic from "../../components/TrendingMusic";
 import axios from "axios";
 import { useUser } from "../../context/UserContext";
+import {Button} from "reactstrap";
 
 const Home = () => {
-  const [trendingMovies, setTrendingMovies] = useState([]);
-  const [trendingMusic, setTrendingMusic] = useState([]);
+  const [todayMovies, setTodayMovies] = useState([]);
+  const [weekMovies, setWeekMovies] = useState([]);
   const { user } = useUser();
 
-  const checkMovies = () => {
-    if (!trendingMovies?.length) {
-      fetchTrendingMovies().then((res) => {
-        console.log(res.results);
-        setTrendingMovies(res.results);
-        axios.post("http://localhost:5000/trendingMovies/save", res.results);
+  const checkMovies = (index) => {
+    if (index === 0 && !todayMovies?.length) {
+      console.log("todays movies");
+      axios.get("http://localhost:5000/trendingMovies/today").then((resp) => {
+        const filteredMovies = resp.data?.filter(m => m.Error === undefined);
+        setTodayMovies(filteredMovies);
       });
-    } else {
-      axios
-        .get("http://localhost:5000/trendingMovies/all")
-        .then((res) => setTrendingMovies(res));
-    }
-  };
-
-  const checkMusic = () => {
-    if (!trendingMusic?.length) {
-      fetchTrendingMusic().then((res) => {
-        console.log(res.artists.artist);
-        setTrendingMusic([...res.artists.artist]);
-        axios.post(
-          "http://localhost:5000/trendingMusic/save",
-          res.artists.artist
-        );
+    } else if (index === 1 && !weekMovies?.length) {
+      console.log("weeks movies");
+      axios.get("http://localhost:5000/trendingMovies/week").then((resp) => {
+        const filteredMovies = resp.data?.filter(m => m.Error === undefined);
+        setWeekMovies(filteredMovies);
       });
-    } else {
-      axios
-        .get("http://localhost:5000/trendingMusic/all")
-        .then((res) => setTrendingMusic(res.artists.artist));
     }
   };
 
   useEffect(() => {
-    if (!user) return; //redirect to login
-    // checkMusic();
-    // checkMovies();
+    if (!user) return;
+    checkMovies(0);
   }, [user]);
-
-  return (
-    <div style={{ marginTop: "10px", height: "100%" }}>
-      {!user ? (
-        <div>Please login to continue!</div>
-      ) : (
-        <Tabs width="100%" size="md" isFitted variant="enclosed">
-          <TabList
-            overflowX="auto"
+  /*
+  overflowX="auto"
             css={css({
               scrollbarWidth: "none",
               "::-webkit-scrollbar": { display: "none" },
@@ -63,21 +40,32 @@ const Home = () => {
               boxShadow: "inset 0 -2px 0 rgba(0, 0, 0, 0.1)",
               border: "0 none",
             })}
-          >
-            <Tab>Trending Movies/Series</Tab>
-            <Tab>Other</Tab>
+             width="100%" size="md" isFitted variant="enclosed"
+   */
+
+  return (
+    <div style={{ marginTop: "10px", height: "100%" }}>
+      {!user ? (
+        <div>Please login to continue!</div>
+      ) : (
+        <Tabs onChange={index => checkMovies(index)}>
+          <TabList css={css({
+            "justify-content": "center"
+          })}>
+            <Tab><Button color="blue">Today</Button></Tab>
+            <Tab><Button color="blue">Week</Button></Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
               <TrendingMovies
-                list={trendingMovies}
-                title="Trending movies/series:"
+                list={todayMovies}
+                title="Trending movies today"
               />
             </TabPanel>
             <TabPanel>
-              <TrendingMusic
-                list={trendingMusic}
-                title="Trending music artists"
+              <TrendingMovies
+                list={weekMovies}
+                title="Trending movies this week"
               />
             </TabPanel>
           </TabPanels>
