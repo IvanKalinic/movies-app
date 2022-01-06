@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./index.scss";
+import { Flex } from "@chakra-ui/react";
 
 const Navbar = ({ user }) => {
   const logout = () => {
@@ -12,18 +13,30 @@ const Navbar = ({ user }) => {
           MyMovies
         </Link>
       </span>
-      <span/>
-      <span/>
-      <span/>
-      { user ? <>
-          <Link className="link" to="/imdbUnoficial">
+      <span />
+      <span />
+      <span />
+      {user ? (
+        <Flex>
+          <Link
+            className="link"
+            to="/questionnaire"
+            style={{ marginRight: 10 }}
+          >
+            Questionnaire
+          </Link>
+          <Link
+            className="link"
+            to="/imdbUnoficial"
+            style={{ marginRight: 10 }}
+          >
             Movies
           </Link>
-          <Link className="link" to="/crypto">
-          Crypto
+          <Link className="link" to="/crypto" style={{ marginRight: 10 }}>
+            Crypto
           </Link>
-        </> : null
-      }
+        </Flex>
+      ) : null}
       {user ? (
         <ul className="list">
           <li className="list-item">
