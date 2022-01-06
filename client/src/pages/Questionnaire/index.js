@@ -30,7 +30,7 @@ const Questionnaire = () => {
             <Button
               colorScheme="teal"
               variant="outline"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/imdbUnoficial")}
             >
               Decline
             </Button>

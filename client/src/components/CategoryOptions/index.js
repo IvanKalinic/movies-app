@@ -6,6 +6,7 @@ import OptionItem from "../OptionItem";
 import { useQuestionnaire } from "../../context/QuestionnaireContext";
 import { ArrowWrapper, ThanksWrapper } from "./styles";
 import ArrowRight from "../../assets/icons/icons8-right-arrow-90.png";
+import { Circle } from "../../pages/Questionnaire/questionnairestyles";
 
 const CategoryOptions = ({ startingIndex, categories }) => {
   const [optionsArray, setOptionsArray] = useState(categories[startingIndex]);
@@ -67,40 +68,50 @@ const CategoryOptions = ({ startingIndex, categories }) => {
   }
 
   return (
-    <Flex justifyContent="center" alignItems="center">
-      {currentIndex < 4 ? (
-        <Flex
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Text fontSize="3xl" mt="6" mb="6">
-            Choose 3 favorite {nameOfCategory}
-          </Text>
-          {displayMessage && <DisplayMessage />}
-          <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
-            {optionsArray.map((option, index) => (
-              <OptionItem
-                image={option.img}
-                name={option.name}
-                handleChange={handleChange}
-                checkedOptions={checkedOptions}
-                key={index}
-              />
-            ))}
+    <>
+      <Flex justifyContent="center" alignItems="center">
+        {currentIndex < 4 ? (
+          <Flex
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Text fontSize="3xl" mt="6" mb="6">
+              Choose three favorite {nameOfCategory}
+            </Text>
+            {displayMessage && <DisplayMessage />}
+            <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
+              {optionsArray.map((option, index) => (
+                <OptionItem
+                  image={option.img}
+                  name={option.name}
+                  handleChange={handleChange}
+                  checkedOptions={checkedOptions}
+                  key={index}
+                />
+              ))}
+            </Flex>
           </Flex>
-        </Flex>
-      ) : (
-        <ThanksWrapper>
-          <Text fontSize="3xl" mt="6">
-            Thank you for your time!
-          </Text>
-        </ThanksWrapper>
-      )}
+        ) : (
+          <ThanksWrapper>
+            <Text fontSize="3xl" mt="6">
+              Thank you for your time!
+            </Text>
+          </ThanksWrapper>
+        )}
+        {currentIndex < 4 && (
+          <ArrowWrapper src={ArrowRight} alt="arrow" onClick={handleNext} />
+        )}
+      </Flex>
       {currentIndex < 4 && (
-        <ArrowWrapper src={ArrowRight} alt="arrow" onClick={handleNext} />
+        <Flex alignItems="center" mt="10" ml="-16">
+          <Circle active={currentIndex + 1 === 1}>1</Circle>
+          <Circle active={currentIndex + 1 === 2}>2</Circle>
+          <Circle active={currentIndex + 1 === 3}>3</Circle>
+          <Circle active={currentIndex + 1 === 4}>4</Circle>
+        </Flex>
       )}
-    </Flex>
+    </>
   );
 };
 

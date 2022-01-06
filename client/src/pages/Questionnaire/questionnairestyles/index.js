@@ -53,3 +53,16 @@ export const PermissionWrapper = styled.div`
   box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   border-radius: 20px;
 `;
+
+export const Circle = styled.div`
+  height: 50px;
+  width: 50px;
+  background-color: ${({ active }) => (active ? "#0c71ed" : "#a3a3a2")};
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
