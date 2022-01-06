@@ -7,7 +7,7 @@ import getsmart from "./GetSmart.png";
 import rockstart from "./Rockstar.png";
 import killbill from "./KillBill.png";
 import avatar from "./Avatar.png";
-import jumpstreet from "./Jumpstreet.png";
+import jumpstreet from "./JumpStreet.png";
 
 export {
   pirates,

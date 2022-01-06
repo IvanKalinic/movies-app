@@ -5,7 +5,7 @@ import Facebook from "../../assets/img/facebook.png";
 import axios from "axios";
 import { useUser } from "../../context/UserContext";
 import "./index.scss";
-import { Input } from "@chakra-ui/react";
+import { Flex, Input, Text } from "@chakra-ui/react";
 
 const Login = () => {
   const [loginAccordion, setLoginAccordion] = useState(false);
@@ -81,9 +81,17 @@ const Login = () => {
 
   return (
     <div className="login">
+      <h1 className="login-title">Login with your social network or manual</h1>
       <div className="wrapper">
         <div className="left">
-          <SocialLoginComponent />
+          <div className="login-button github" onClick={github}>
+            <img src={Github} alt="" className="icon" />
+            Github
+          </div>
+          <div className="login-button facebook" onClick={facebook}>
+            <img src={Facebook} alt="" className="icon" />
+            Facebook
+          </div>
         </div>
         <div className="center">
           <div className="line" />
