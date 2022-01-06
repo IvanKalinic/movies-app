@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import DisplayMessage from "../DisplayMessage";
 import OptionItem from "../OptionItem";
 import { useQuestionnaire } from "../../context/QuestionnaireContext";
+import { ThanksWrapper } from "./styles";
 
 const CategoryOptions = ({ startingIndex, categories }) => {
   const [optionsArray, setOptionsArray] = useState(categories[startingIndex]);
@@ -61,7 +62,7 @@ const CategoryOptions = ({ startingIndex, categories }) => {
 
   if (currentIndex === 4) {
     setTimeout(() => {
-      navigate("/");
+      navigate("/imdbUnoficial");
     }, 2000);
   }
 
@@ -73,8 +74,8 @@ const CategoryOptions = ({ startingIndex, categories }) => {
           justifyContent="center"
           alignItems="center"
         >
-          <Text fontSize="30px">
-            Choose 3 favorites of these {nameOfCategory}
+          <Text fontSize="3xl" mt="6" mb="6">
+            Choose 3 favorite {nameOfCategory}
           </Text>
           {displayMessage && <DisplayMessage />}
           <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
@@ -90,10 +91,15 @@ const CategoryOptions = ({ startingIndex, categories }) => {
           </Flex>
         </Flex>
       ) : (
-        <Text>Thank you for your time</Text>
+        <ThanksWrapper>
+          <Text fontSize="3xl" mt="6">
+            Thank you for your time!
+          </Text>
+        </ThanksWrapper>
       )}
-
-      <ArrowForwardIcon w={100} h={50} onClick={handleNext} style={{}} />
+      {currentIndex < 4 && (
+        <ArrowForwardIcon w={100} h={50} onClick={handleNext} style={{}} />
+      )}
     </Flex>
   );
 };

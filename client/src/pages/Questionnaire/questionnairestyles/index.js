@@ -45,3 +45,11 @@ export const OptionImage = styled.img`
   border-top-left-radius: 10px;
   outline: none;
 `;
+
+export const PermissionWrapper = styled.div`
+  margin-top: 60px;
+  height: 300px;
+  width: 600px;
+  box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  border-radius: 20px;
+`;

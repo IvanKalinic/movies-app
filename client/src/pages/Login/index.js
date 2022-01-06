@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Github from "../../assets/img/github.png";
 import Facebook from "../../assets/img/facebook.png";
 import axios from "axios";
-import "./index.scss";
 import { useUser } from "../../context/UserContext";
+import "./index.scss";
+import { Input } from "@chakra-ui/react";
 
 const Login = () => {
   const [loginAccordion, setLoginAccordion] = useState(false);
@@ -76,7 +77,7 @@ const Login = () => {
   }*/
   const facebook = () => {
     window.open("http://localhost:5000/auth/facebook", "_self");
-  }
+  };
 
   return (
     <div className="login">
@@ -112,41 +113,50 @@ const Login = () => {
           )}
           {(loginAccordion || registerAccordion) && (
             <form className="inputs" onSubmit={handleAuth}>
-              <input
+              <Input
                 type="email"
                 placeholder="Email"
                 id="email"
                 name="email"
                 ref={email}
+                mt="-4"
+                mb="3"
                 required
               />
-              <input
+              <Input
                 type="text"
                 placeholder="Username"
                 id="username"
                 name="username"
                 ref={username}
+                mb="3"
                 required
               />
-              <input
+              <Input
                 type="password"
                 placeholder="Password"
                 id="password"
                 name="password"
                 ref={password}
+                mb="3"
                 required
               />
               {registerAccordion && (
-                <input
-                  type="password"
-                  placeholder="Password"
+                <Input
+                  type="Repeated password"
+                  placeholder="Repeated password"
                   id="passwordAgain"
                   name="passwordAgain"
                   ref={passwordAgain}
+                  mb="4"
                   required
                 />
               )}
-              <button type="submit" className="submit-btn submit">
+              <button
+                type="submit"
+                className="submit-btn submit"
+                style={{ marginTop: "10px" }}
+              >
                 Submit
               </button>
             </form>

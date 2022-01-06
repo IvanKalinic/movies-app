@@ -42,10 +42,13 @@ const Navbar = ({ user }) => {
           <li className="list-item">
             <img src={user.profilePicture} alt="" className="avatar" />
           </li>
-          <li className="list-item" style={{ color: "black" }}>
+          <li
+            className="list-item"
+            style={{ color: "black", marginLeft: "-10px" }}
+          >
             {user.username}
           </li>
-          <li className="list-item" onClick={logout}>
+          <li className="list-item logout" onClick={logout}>
             Logout
           </li>
         </ul>
