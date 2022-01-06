@@ -1,5 +1,6 @@
 const GithubStrategy = require("passport-github2").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
+
 const passport = require("passport");
 const dotenv = require("dotenv");
 const User = require("./models/User");
@@ -53,7 +54,7 @@ passport.use(
       );
     }
   )
-);
+
 
 passport.serializeUser((user, done) => {
   done(null, user);
