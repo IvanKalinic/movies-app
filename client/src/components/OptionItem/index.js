@@ -1,4 +1,5 @@
 import React from "react";
+import { Flex } from "@chakra-ui/react";
 import {
   OptionItemWrapper,
   OptionImage,
@@ -9,18 +10,29 @@ import {
 const OptionItem = ({ image, name, handleChange, checkedOptions }) => {
   return (
     <OptionItemWrapper>
-      <OptionImage src={image} />
       <CheckboxLabel>
-        <CheckboxInput
-          type="checkbox"
-          disabled={
-            checkedOptions.length === 3 &&
-            !checkedOptions.find((checked) => checked === name)
-          }
-          onChange={(e) => handleChange(e, name)}
-          checked={checkedOptions.find((checked) => checked === name) || false}
-        />
-        <p>{name}</p>
+        <OptionImage src={image} />
+        <Flex>
+          <CheckboxInput
+            type="checkbox"
+            disabled={
+              checkedOptions.length === 3 &&
+              !checkedOptions.find((checked) => checked === name)
+            }
+            onChange={(e) => handleChange(e, name)}
+            checked={
+              checkedOptions.find((checked) => checked === name) || false
+            }
+          />
+          <p
+            style={{
+              marginTop: "8px",
+              marginLeft: "6px",
+            }}
+          >
+            {name}
+          </p>
+        </Flex>
       </CheckboxLabel>
     </OptionItemWrapper>
   );

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const OptionItemWrapper = styled.div`
   margin-top: 20px;
   width: 220px;
-  height: 200px;
+  height: 205px;
   -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
@@ -17,11 +17,13 @@ export const OptionItemWrapper = styled.div`
 
 export const CheckboxLabel = styled.label`
   display: flex;
-  align-items: center;
-  justify-conent: center;
+  flex-direction: column;
 `;
 
 export const CheckboxInput = styled.input`
+  position: relative;
+  left: 12px;
+  top: 11px;
   width: 20px;
   height: 20px;
   border-radius: 5px;

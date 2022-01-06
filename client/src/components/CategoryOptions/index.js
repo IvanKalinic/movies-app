@@ -76,6 +76,7 @@ const CategoryOptions = ({ startingIndex, categories }) => {
           <Text fontSize="30px">
             Choose 3 favorites of these {nameOfCategory}
           </Text>
+          {displayMessage && <DisplayMessage />}
           <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
             {optionsArray.map((option, index) => (
               <OptionItem
@@ -91,7 +92,7 @@ const CategoryOptions = ({ startingIndex, categories }) => {
       ) : (
         <Text>Thank you for your time</Text>
       )}
-      {displayMessage && <DisplayMessage />}
+
       <ArrowForwardIcon w={100} h={50} onClick={handleNext} style={{}} />
     </Flex>
   );
