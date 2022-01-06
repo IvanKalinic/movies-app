@@ -56,4 +56,22 @@ router.get(
     })
 );
 
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email",
+    ],
+  })
+);
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: process.env.CLIENT_GOOGLE_CALLBACK_URL,
+    failureRedirect: "/login/failed",
+  })
+);
+
 module.exports = router;
