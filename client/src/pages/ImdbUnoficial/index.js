@@ -53,7 +53,10 @@ const ImdbUnoficial = () => {
           onChange={(event) => setSearch(event.target.value)}
         />
       </Flex>
-      <Button style={{ width: "100px" }} onClick={() => searchMovies()}>
+      <Button
+        style={{ width: "100px", marginBottom: "10px" }}
+        onClick={() => searchMovies()}
+      >
         Search
       </Button>
       <CardGroup>
