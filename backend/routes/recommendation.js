@@ -5,7 +5,7 @@ router.get("/movie-name/:name", (req, res) => {
   recommendationService
     .recommendByName(req.params.name)
     .then((result) => {
-      res.json(result);
+      res.json({ movies: result });
     })
     .catch((err) => {
       res.send(err);
