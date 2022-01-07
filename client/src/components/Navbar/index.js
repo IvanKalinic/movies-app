@@ -9,15 +9,12 @@ const Navbar = ({ user }) => {
   return (
     <div className="navbar">
       <span className="logo">
-        <Link className="link" to="/">
+        <Link className="link" to="/imdbUnoficial">
           MyMovies
         </Link>
       </span>
-      <span />
-      <span />
-      <span />
       {user ? (
-        <Flex>
+        <Flex mb="2" ml="10">
           <Link
             className="link"
             to="/questionnaire"
@@ -38,7 +35,7 @@ const Navbar = ({ user }) => {
         </Flex>
       ) : null}
       {user ? (
-        <ul className="list">
+        <ul className="list" style={{ marginBottom: "6px" }}>
           <li className="list-item">
             <img src={user.profilePicture} alt="" className="avatar" />
           </li>

@@ -6,6 +6,7 @@ import axios from "axios";
 import { callImdbUnofficialSpecificFilm } from "../../apis/ImdbUnofficialSpecificFilm";
 import { getMovies, getMoviesFromImdb } from "../../utils/ExtractMovies";
 import { callOmdbApiById, callOmdbApiBySearch } from "../../apis/omdbapi";
+import { Flex } from "@chakra-ui/react";
 
 const ImdbUnoficial = () => {
   const [search, setSearch] = useState("");
@@ -39,12 +40,22 @@ const ImdbUnoficial = () => {
 
   return (
     <div>
-      <Label>Search movies</Label>
-      <Input
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
-      />
-      <Button onClick={() => searchMovies()}>Search</Button>
+      <Flex
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        mb="2"
+      >
+        <Label style={{ marginTop: "8px" }}>Search movies</Label>
+        <Input
+          style={{ width: "500px" }}
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+        />
+      </Flex>
+      <Button style={{ width: "100px" }} onClick={() => searchMovies()}>
+        Search
+      </Button>
       <CardGroup>
         {movies?.map((movie, index) => (
           <ReactstrapCard
