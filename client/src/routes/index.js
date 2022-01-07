@@ -36,10 +36,6 @@ const AppRoutes = () => {
             path="/details"
             element={<MovieNameRecommendation movieName="Avatar" />}
           />
-          {/* <Route
-            path="/post/:id"
-            element={user ? <Post /> : <Navigate to="/login" />}
-          /> */}
         </Routes>
       </div>
     </Router>
