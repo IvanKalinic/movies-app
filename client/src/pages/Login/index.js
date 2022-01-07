@@ -90,16 +90,30 @@ const Login = () => {
       <h1 className="login-title">Login with your social network or manual</h1>
       <div className="wrapper">
         <div className="left">
-          <div className="login-button github" onClick={github}>
+          <div
+            className="login-button github"
+            onClick={github}
+            style={{ marginRight: "2px" }}
+          >
             <img src={Github} alt="github" className="icon" />
-            Github
+            GitHub
           </div>
           <div className="login-button facebook" onClick={facebook}>
-            <img src={Facebook} alt="facebook" className="icon" />
+            <img
+              src={Facebook}
+              alt="facebook"
+              className="icon"
+              style={{ marginRight: "2px" }}
+            />
             Facebook
           </div>
           <div className="login-button google" onClick={google}>
-            <img src={Google} alt="google" className="icon" />
+            <img
+              src={Google}
+              alt="google"
+              className="icon"
+              style={{ marginRight: "2px" }}
+            />
             Google
           </div>
         </div>
@@ -153,7 +167,7 @@ const Login = () => {
               />
               {registerAccordion && (
                 <Input
-                  type="Repeated password"
+                  type="password"
                   placeholder="Repeated password"
                   id="passwordAgain"
                   name="passwordAgain"
