@@ -31,6 +31,7 @@ const AppRoutes = () => {
             path="/questionnaire"
             element={user ? <Questionnaire /> : <Login />}
           />
+          {/* user.booleanProp ? <Questionnaire /> : user ? <ImdbUnoficial/> : <Login /> */}
           <Route path="/crypto" element={user ? <CryptoMarket /> : <Login />} />
           <Route
             path="/details"

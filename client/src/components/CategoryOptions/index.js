@@ -7,6 +7,7 @@ import { useQuestionnaire } from "../../context/QuestionnaireContext";
 import { ArrowWrapper, ThanksWrapper } from "./styles";
 import ArrowRight from "../../assets/icons/icons8-right-arrow-90.png";
 import { Circle } from "../../pages/Questionnaire/questionnairestyles";
+import axios from "axios";
 
 const CategoryOptions = ({ startingIndex, categories }) => {
   const [optionsArray, setOptionsArray] = useState(categories[startingIndex]);
@@ -16,6 +17,7 @@ const CategoryOptions = ({ startingIndex, categories }) => {
   const { selectedOptions, setSelectedOptions } = useQuestionnaire();
   const [nameOfCategory, setNameOfCategory] = useState("");
   const navigate = useNavigate();
+  const { movies, directors, actors, genres } = selectedOptions;
 
   useEffect(() => {
     const currentCategory = () => {
@@ -62,6 +64,12 @@ const CategoryOptions = ({ startingIndex, categories }) => {
   };
 
   if (currentIndex === 4) {
+    // axios.post("imerute", {
+    //   movies,
+    //   directors,
+    //   actors,
+    //   genres,
+    // });
     setTimeout(() => {
       navigate("/imdbUnoficial");
     }, 2000);
