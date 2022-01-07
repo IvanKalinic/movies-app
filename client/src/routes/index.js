@@ -12,6 +12,7 @@ import { useUser } from "../context/UserContext";
 import ImdbUnoficial from "../pages/ImdbUnoficial";
 import CryptoMarket from "../pages/CryptoMarket";
 import Questionnaire from "../pages/Questionnaire";
+import { MovieNameRecommendation } from "../components/MovieDetails/MovieNameRecommendation";
 
 const AppRoutes = () => {
   const { user } = useUser();
@@ -31,6 +32,10 @@ const AppRoutes = () => {
             element={user ? <Questionnaire /> : <Login />}
           />
           <Route path="/crypto" element={user ? <CryptoMarket /> : <Login />} />
+          <Route
+            path="/details"
+            element={<MovieNameRecommendation movieName="Avatar" />}
+          />
           {/* <Route
             path="/post/:id"
             element={user ? <Post /> : <Navigate to="/login" />}
