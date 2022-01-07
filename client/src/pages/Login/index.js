@@ -2,10 +2,11 @@ import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Github from "../../assets/img/github.png";
 import Facebook from "../../assets/img/facebook.png";
+import Google from "../../assets/img/google.png";
 import axios from "axios";
 import { useUser } from "../../context/UserContext";
 import "./index.scss";
-import { Flex, Input, Text } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 
 const Login = () => {
   const [loginAccordion, setLoginAccordion] = useState(false);
@@ -19,6 +20,14 @@ const Login = () => {
 
   const github = () => {
     window.open("http://localhost:5000/auth/github", "_self");
+  };
+
+  const facebook = () => {
+    window.open("http://localhost:5000/auth/facebook", "_self");
+  };
+
+  const google = () => {
+    window.open("http://localhost:5000/auth/google", "_self");
   };
 
   const handleLogin = () => {
@@ -75,9 +84,6 @@ const Login = () => {
       console.log("Facebook login success, client side", response);
     })
   }*/
-  const facebook = () => {
-    window.open("http://localhost:5000/auth/facebook", "_self");
-  };
 
   return (
     <div className="login">
@@ -85,12 +91,16 @@ const Login = () => {
       <div className="wrapper">
         <div className="left">
           <div className="login-button github" onClick={github}>
-            <img src={Github} alt="" className="icon" />
+            <img src={Github} alt="github" className="icon" />
             Github
           </div>
           <div className="login-button facebook" onClick={facebook}>
-            <img src={Facebook} alt="" className="icon" />
+            <img src={Facebook} alt="facebook" className="icon" />
             Facebook
+          </div>
+          <div className="login-button google" onClick={google}>
+            <img src={Google} alt="google" className="icon" />
+            Google
           </div>
         </div>
         <div className="center">
