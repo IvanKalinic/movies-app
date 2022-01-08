@@ -5,7 +5,6 @@ import axios from "axios";
 import { getMoviesFromImdb } from "../../utils/ExtractMovies";
 import { callOmdbApiById, callOmdbApiBySearch } from "../../apis/omdbapi";
 import { Flex } from "@chakra-ui/react";
-import UserPreferenceRecommendation from "../../components/Recommendation/UserPreference/UserPreferenceRecommendation";
 
 const ImdbUnoficial = () => {
   const [search, setSearch] = useState("");
@@ -67,7 +66,6 @@ const ImdbUnoficial = () => {
           />
         ))}
       </CardGroup>
-      <UserPreferenceRecommendation />
     </div>
   );
 };

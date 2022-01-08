@@ -13,7 +13,7 @@ export const MovieTitleRecommendation = ({ movieName }) => {
         const res = await fetchMovie(recommendedMovieNames[i]);
         recMovies.push(res.data);
       }
-      setRecommendedMovies(recMovies);
+      setRecommendedMovies(recMovies.filter((value) => value !== null));
     });
   }, []);
 
