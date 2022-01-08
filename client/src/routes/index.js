@@ -23,17 +23,36 @@ const AppRoutes = () => {
       <div>
         <Navbar user={user} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              user && !user?.prefBool ? (
+                <Home />
+              ) : user ? (
+                <ImdbUnoficial />
+              ) : (
+                <Login />
+              )
+            }
+          />
           <Route
             path="/login"
             element={user ? <Navigate to="/" /> : <Login />}
           />
           <Route path="/imdbUnoficial" element={<ImdbUnoficial />} />
-          <Route
+          {/* <Route
             path="/questionnaire"
-            element={user ? <Questionnaire /> : <Login />}
-          />
-          {/* user.booleanProp ? <Questionnaire /> : user ? <ImdbUnoficial/> : <Login /> */}
+            element={
+              user?.PrefProp ? (
+                <Questionnaire />
+              ) : user ? (
+                <ImdbUnoficial />
+              ) : (
+                <Login />
+              )
+            }
+          /> */}
+          {/*  */}
           <Route path="/crypto" element={user ? <CryptoMarket /> : <Login />} />
           <Route path="/details/:name" element={<MovieDetails />} />
           <Route path="/popular" element={<PopularMovies />} />

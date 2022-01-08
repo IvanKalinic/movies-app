@@ -17,13 +17,6 @@ const Navbar = ({ user }) => {
         <Flex mb="2" ml="10">
           <Link
             className="link"
-            to="/questionnaire"
-            style={{ marginRight: 10 }}
-          >
-            Questionnaire
-          </Link>
-          <Link
-            className="link"
             to="/imdbUnoficial"
             style={{ marginRight: 10 }}
           >
