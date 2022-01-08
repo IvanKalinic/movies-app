@@ -1,6 +1,14 @@
 import {Box, Flex, Image} from "@chakra-ui/react";
+import {useNavigate} from "react-router-dom";
 
 const MovieBox = ({ item }) => {
+
+    const navigate = useNavigate();
+
+    const openDetailsPage = () => {
+        navigate("/movieDetails", {state: {title: item.Title}});
+    }
+
     return (
         <Flex
             flexDirection="column"
@@ -8,6 +16,7 @@ const MovieBox = ({ item }) => {
             alignItems="center"
             mr="24"
             mt="12"
+            onClick={() => openDetailsPage()}
         >
             <Image src={item.Poster} alt="img"/>
 

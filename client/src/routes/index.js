@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,9 +14,11 @@ import CryptoMarket from "../pages/CryptoMarket";
 import Questionnaire from "../pages/Questionnaire";
 import PopularMovies from "../pages/PopularMovies";
 import { MovieTitleRecommendation } from "../components/Recommendation/MovieTitle/MovieTitleRecommendation";
+import MovieDetails from "../pages/MovieDetails";
 
 const AppRoutes = () => {
   const { user } = useUser();
+
   return (
     <Router>
       <div>
@@ -38,7 +40,11 @@ const AppRoutes = () => {
             path="/details"
             element={<MovieTitleRecommendation movieName="Avatar" />}
           />
-          <Route path="/popular" element={<PopularMovies />} />
+          <Route
+              path="/movieDetails"
+              element={<MovieDetails/>}
+          />
+          <Route path="/popular" element={<PopularMovies/>} />
         </Routes>
       </div>
     </Router>
