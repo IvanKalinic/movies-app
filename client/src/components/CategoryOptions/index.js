@@ -8,6 +8,7 @@ import { ArrowWrapper, ThanksWrapper } from "./styles";
 import ArrowRight from "../../assets/icons/icons8-right-arrow-90.png";
 import { Circle } from "../../pages/Questionnaire/questionnairestyles";
 import axios from "axios";
+import { useUser } from "../../context/UserContext";
 
 const CategoryOptions = ({ startingIndex, categories }) => {
   const [optionsArray, setOptionsArray] = useState(categories[startingIndex]);
@@ -18,6 +19,7 @@ const CategoryOptions = ({ startingIndex, categories }) => {
   const [nameOfCategory, setNameOfCategory] = useState("");
   const navigate = useNavigate();
   const { movies, directors, actors, genres } = selectedOptions;
+  const { user } = useUser()
 
   useEffect(() => {
     const currentCategory = () => {
@@ -64,12 +66,13 @@ const CategoryOptions = ({ startingIndex, categories }) => {
   };
 
   if (currentIndex === 4) {
-    // axios.post("imerute", {
-    //   movies,
-    //   directors,
-    //   actors,
-    //   genres,
-    // });
+     axios.post("http://localhost:5000/preferences/save", {
+       movies,
+       directors,
+       actors,
+       genres,
+       user
+     });
     setTimeout(() => {
       navigate("/popular");
     }, 2000);
