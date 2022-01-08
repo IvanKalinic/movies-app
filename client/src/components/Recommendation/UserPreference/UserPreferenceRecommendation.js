@@ -13,8 +13,12 @@ const UserPreferenceRecommendation = ({ userId }) => {
 
   return (
     <div>
-      <h1>Based on your preferenecs we recommend you these movies!</h1>
-      <MovieList movies={recommendedMovies} />;
+      {recommendedMovies.length > 0 && (
+        <>
+          <h1>Based on your prefereneces we recommend you these movies!</h1>
+          <MovieList movies={recommendedMovies} />
+        </>
+      )}
     </div>
   );
 };
