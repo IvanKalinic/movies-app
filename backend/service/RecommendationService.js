@@ -6,6 +6,8 @@ const movieService = require("./MovieService");
 
 const recommendationFields = movieService.recommendationFields();
 
+const User = require("../models/User");
+
 const recommendByName = async (name) => {
   return axios
     .get(`${modelAPI}/${name}`)
@@ -26,6 +28,7 @@ const mockUser = {
 
 const recommendForUser = async (userId) => {
   //fetch user from db
+  const user  = await User.find({_id: userId}).exec()
 
   //read random field (directors, actors, genres)
   let movies = [];
@@ -50,7 +53,12 @@ const recommendForUser = async (userId) => {
     count += 1;
     if (count === 10) break;
   }
-  return movies;
+
+  const uniqueTitles = [
+    ...new Map(movies.map((item) => [item["title"], item])).values(),
+  ];
+
+  return uniqueTitles;
 };
 
 module.exports = {

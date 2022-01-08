@@ -9,10 +9,7 @@ const findByField = async (field, value) => {
   else filter = { [field]: { $in: value } };
 
   const movies = await ImdbUnofficial.find(filter).exec();
-  const uniqueTitles = [
-    ...new Map(movies.map((item) => [item["title"], item])).values(),
-  ];
-  return uniqueTitles;
+  return movies;
 };
 
 module.exports = {

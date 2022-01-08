@@ -15,7 +15,7 @@ export const MovieTitleRecommendation = ({ movieName }) => {
       }
       setRecommendedMovies(recMovies.filter((value) => value !== null));
     });
-  }, []);
+  }, [movieName]);
 
   return <MovieList movies={recommendedMovies} />;
 };
