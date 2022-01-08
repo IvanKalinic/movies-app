@@ -10,6 +10,7 @@ const trendingMusicRoute = require("./routes/trendingMusic");
 const imdbUnofficialRoute = require("./routes/imdbUnofficial");
 const cryptoRoute = require("./routes/crypto");
 const recommendationRoute = require("./routes/recommendation")
+const preferencesRoute = require("./routes/preferences")
 const passportSetup = require("./passport");
 const bodyParser = require("body-parser");
 const session = require("express-session");
@@ -61,6 +62,7 @@ app.use("/trendingMusic", trendingMusicRoute);
 app.use("/trendingMovies", trendingMoviesRoute);
 app.use("/imdbUnofficial", imdbUnofficialRoute);
 app.use("/crypto", cryptoRoute);
+app.use("/preferences", preferencesRoute);
 app.use("/recommendation", recommendationRoute)
 app.get("/", (req, res) => {
   req.header("Access-Control-Allow-Origin", "http://localhost:3000");
