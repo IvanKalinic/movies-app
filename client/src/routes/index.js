@@ -12,9 +12,8 @@ import { useUser } from "../context/UserContext";
 import ImdbUnoficial from "../pages/ImdbUnoficial";
 import CryptoMarket from "../pages/CryptoMarket";
 import Questionnaire from "../pages/Questionnaire";
-import { MovieNameRecommendation } from "../components/MovieDetails/MovieNameRecommendation";
-import TrendingMovies from "../components/TrendingMovies";
 import PopularMovies from "../pages/PopularMovies";
+import { MovieTitleRecommendation } from "../components/Recommendation/MovieTitle/MovieTitleRecommendation";
 
 const AppRoutes = () => {
   const { user } = useUser();
@@ -34,13 +33,12 @@ const AppRoutes = () => {
             element={user ? <Questionnaire /> : <Login />}
           />
           <Route path="/crypto" element={user ? <CryptoMarket /> : <Login />} />
+          //TODO(tkurtovic): Remove this when details page gets added
           <Route
             path="/details"
-            element={<MovieNameRecommendation movieName="Avatar" />}
+            element={<MovieTitleRecommendation movieName="Avatar" />}
           />
-          <Route
-            path="/popular"
-            element={<PopularMovies/>}/>
+          <Route path="/popular" element={<PopularMovies />} />
         </Routes>
       </div>
     </Router>

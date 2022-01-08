@@ -19,9 +19,9 @@ const recommendByName = async (name) => {
 
 //TODO(tkurtovic): Remove mockUser when be starts supporting questionaire
 const mockUser = {
-  director: ["James Cameron", "Woody Allen"],
-  actors: ["Brad Pitt", "Angelina Jolie"],
-  genre: ["Drama", "Romance"],
+  director: ["James Cameron", "Woody Allen", "Quentin Tarantino"],
+  actors: ["Brad Pitt", "Angelina Jolie", "Sean Penn"],
+  genre: ["Drama", "Romance", "Action"],
 };
 
 const recommendForUser = async (userId) => {
