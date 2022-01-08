@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,7 +13,6 @@ import ImdbUnoficial from "../pages/ImdbUnoficial";
 import CryptoMarket from "../pages/CryptoMarket";
 import Questionnaire from "../pages/Questionnaire";
 import PopularMovies from "../pages/PopularMovies";
-import { MovieTitleRecommendation } from "../components/Recommendation/MovieTitle/MovieTitleRecommendation";
 import MovieDetails from "../pages/MovieDetails";
 
 const AppRoutes = () => {
@@ -35,16 +34,8 @@ const AppRoutes = () => {
             element={user ? <Questionnaire /> : <Login />}
           />
           <Route path="/crypto" element={user ? <CryptoMarket /> : <Login />} />
-          //TODO(tkurtovic): Remove this when details page gets added
-          <Route
-            path="/details"
-            element={<MovieTitleRecommendation movieName="Avatar" />}
-          />
-          <Route
-              path="/movieDetails"
-              element={<MovieDetails/>}
-          />
-          <Route path="/popular" element={<PopularMovies/>} />
+          <Route path="/details/:name" element={<MovieDetails />} />
+          <Route path="/popular" element={<PopularMovies />} />
         </Routes>
       </div>
     </Router>

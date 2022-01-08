@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardBody,
@@ -9,8 +10,14 @@ import {
 import "./Card.scss";
 
 export function ReactstrapCard(props) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/details/" + props.title, { state: { title: props.title } });
+  };
+
   return (
-    <Card className="card">
+    <Card className="card" onClick={handleClick}>
       {!!props?.picture ? (
         <CardImg alt="No image" src={props.picture} top className="picture" />
       ) : null}
