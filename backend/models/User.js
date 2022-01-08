@@ -20,6 +20,14 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    prefBool: {
+      type: Boolean,
+      default: false,
+    },
+    preferences: {
+      type: Object,
+      defualt: undefined
+    }
   },
   { timestamps: true }
 );
