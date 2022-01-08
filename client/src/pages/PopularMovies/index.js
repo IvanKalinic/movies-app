@@ -4,6 +4,7 @@ import TrendingMovies from "../../components/TrendingMovies";
 import axios from "axios";
 import {useUser} from "../../context/UserContext";
 import {Button} from "reactstrap";
+import UserPreferenceRecommendation from "../../components/Recommendation/UserPreference/UserPreferenceRecommendation";
 
 const PopularMovies = () => {
     const [todayMovies, setTodayMovies] = useState([]);
@@ -30,17 +31,6 @@ const PopularMovies = () => {
         if (!user) return;
         checkMovies(0);
     }, [user]);
-    /*
-    overflowX="auto"
-              css={css({
-                scrollbarWidth: "none",
-                "::-webkit-scrollbar": { display: "none" },
-                "-webkit-overflow-scrolling": "touch",
-                boxShadow: "inset 0 -2px 0 rgba(0, 0, 0, 0.1)",
-                border: "0 none",
-              })}
-               width="100%" size="md" isFitted variant="enclosed"
-     */
 
     return (
         <div style={{ marginTop: "10px", height: "100%" }}>
@@ -70,6 +60,7 @@ const PopularMovies = () => {
                     </TabPanels>
                 </Tabs>
             )}
+            <UserPreferenceRecommendation userId={user}/>
         </div>
     );
 };
