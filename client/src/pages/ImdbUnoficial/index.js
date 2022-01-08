@@ -1,11 +1,11 @@
-import {Button, CardGroup, Input, Label} from "reactstrap";
-import {useState} from "react";
-import {ReactstrapCard} from "../../components/ReactstrapCards/Card";
+import { Button, CardGroup, Input, Label } from "reactstrap";
+import { useState } from "react";
+import { ReactstrapCard } from "../../components/ReactstrapCards/Card";
 import axios from "axios";
-import {getMoviesFromImdb} from "../../utils/ExtractMovies";
-import {callOmdbApiById, callOmdbApiBySearch} from "../../apis/omdbapi";
-import {Flex} from "@chakra-ui/react";
-
+import { getMoviesFromImdb } from "../../utils/ExtractMovies";
+import { callOmdbApiById, callOmdbApiBySearch } from "../../apis/omdbapi";
+import { Flex } from "@chakra-ui/react";
+import UserPreferenceRecommendation from "../../components/Recommendation/UserPreference/UserPreferenceRecommendation";
 
 const ImdbUnoficial = () => {
   const [search, setSearch] = useState("");
@@ -67,6 +67,7 @@ const ImdbUnoficial = () => {
           />
         ))}
       </CardGroup>
+      <UserPreferenceRecommendation />
     </div>
   );
 };
