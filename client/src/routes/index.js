@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,7 +11,6 @@ import Login from "../pages/Login";
 import { useUser } from "../context/UserContext";
 import ImdbUnoficial from "../pages/ImdbUnoficial";
 import CryptoMarket from "../pages/CryptoMarket";
-import Questionnaire from "../pages/Questionnaire";
 import PopularMovies from "../pages/PopularMovies";
 import MovieDetails from "../pages/MovieDetails";
 
@@ -40,19 +39,6 @@ const AppRoutes = () => {
             element={user ? <Navigate to="/" /> : <Login />}
           />
           <Route path="/imdbUnoficial" element={<ImdbUnoficial />} />
-          {/* <Route
-            path="/questionnaire"
-            element={
-              user?.PrefProp ? (
-                <Questionnaire />
-              ) : user ? (
-                <ImdbUnoficial />
-              ) : (
-                <Login />
-              )
-            }
-          /> */}
-          {/*  */}
           <Route path="/crypto" element={user ? <CryptoMarket /> : <Login />} />
           <Route path="/details/:name" element={<MovieDetails />} />
           <Route path="/popular" element={<PopularMovies />} />
