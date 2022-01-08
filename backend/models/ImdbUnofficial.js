@@ -24,13 +24,13 @@ const ImdbUnofficialSchema = new mongoose.Schema(
             type: String
         },
         actors: {
-            type: String
+            type: [String]
         },
         director: {
             type: String
         },
         genre: {
-            type: String
+            type: [String]
         },
         writer: {
             type: String

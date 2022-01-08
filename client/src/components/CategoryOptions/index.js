@@ -63,7 +63,7 @@ const CategoryOptions = ({ startingIndex, categories }) => {
 
   if (currentIndex === 4) {
     setTimeout(() => {
-      navigate("/imdbUnoficial");
+      navigate("/popular");
     }, 2000);
   }
 

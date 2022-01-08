@@ -4,6 +4,7 @@ import {ReactstrapCard} from "../../components/ReactstrapCards/Card";
 import axios from "axios";
 import {getMoviesFromImdb} from "../../utils/ExtractMovies";
 import {callOmdbApiById, callOmdbApiBySearch} from "../../apis/omdbapi";
+import {Flex} from "@chakra-ui/react";
 
 
 const ImdbUnoficial = () => {

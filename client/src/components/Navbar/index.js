@@ -9,7 +9,7 @@ const Navbar = ({ user }) => {
   return (
     <div className="navbar">
       <span className="logo">
-        <Link className="link" to={user ? "/imdbUnoficial" : "/"}>
+        <Link className="link" to={user ? "/popular" : "/"}>
           MyMovies
         </Link>
       </span>
@@ -29,8 +29,8 @@ const Navbar = ({ user }) => {
           >
             Movies
           </Link>
-          <Link className="link" to="/crypto" style={{ marginRight: 10 }}>
-            Crypto
+          <Link className="link" to="/popular" style={{ marginRight: 10 }}>
+            Trending
           </Link>
         </Flex>
       ) : null}
