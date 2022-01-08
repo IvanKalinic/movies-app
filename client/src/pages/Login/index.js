@@ -153,7 +153,7 @@ const Login = () => {
               />
               {registerAccordion && (
                 <Input
-                  type="Repeated password"
+                  type="password"
                   placeholder="Repeated password"
                   id="passwordAgain"
                   name="passwordAgain"
