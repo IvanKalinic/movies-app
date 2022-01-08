@@ -19,16 +19,9 @@ const recommendByName = async (name) => {
     });
 };
 
-//TODO(tkurtovic): Remove mockUser when be starts supporting questionaire
-const mockUser = {
-  director: ["James Cameron", "Woody Allen", "Quentin Tarantino"],
-  actors: ["Brad Pitt", "Angelina Jolie", "Sean Penn"],
-  genre: ["Drama", "Romance", "Action"],
-};
-
 const recommendForUser = async (userId) => {
-  //fetch user from db
-  const user  = await User.find({_id: userId}).exec()
+  const user = await User.findOne({ _id: userId }).exec();
+  const userPrefs = JSON.parse(user.preferences);
 
   //read random field (directors, actors, genres)
   let movies = [];
@@ -36,11 +29,15 @@ const recommendForUser = async (userId) => {
   let count = 0;
 
   while (movies.length < 5) {
+    if (count == 10) break;
+    count += 1;
+
     const field =
       recommendationFields[
         Math.floor(Math.random() * recommendationFields.length)
       ];
-    const values = mockUser[field];
+    const values = userPrefs[field];
+
     let value = values[Math.floor(Math.random() * values.length)];
 
     if (usedValues.includes(value)) continue;
@@ -48,10 +45,14 @@ const recommendForUser = async (userId) => {
     usedValues.push(value);
 
     const res = await movieService.findByField(field, value);
-    movies = [...movies, ...res];
 
-    count += 1;
-    if (count === 10) break;
+    for (let i = 0; i < res.length; i++) {
+      movies.push(res[i]);
+      if (movies.length == 5) {
+        count = 10;
+        break;
+      }
+    }
   }
 
   const uniqueTitles = [
