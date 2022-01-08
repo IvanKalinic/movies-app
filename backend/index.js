@@ -9,7 +9,7 @@ const trendingMoviesRoute = require("./routes/trendingMovies");
 const trendingMusicRoute = require("./routes/trendingMusic");
 const imdbUnofficialRoute = require("./routes/imdbUnofficial");
 const cryptoRoute = require("./routes/crypto");
-const recommendationRoute = require("./routes/recommendation")
+const recommendationRoute = require("./routes/recommendation");
 const passportSetup = require("./passport");
 const bodyParser = require("body-parser");
 const session = require("express-session");
@@ -37,7 +37,7 @@ app.use(
 );
 
 mongoose
-  .connect("mongodb://localhost:27017", {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -61,7 +61,7 @@ app.use("/trendingMusic", trendingMusicRoute);
 app.use("/trendingMovies", trendingMoviesRoute);
 app.use("/imdbUnofficial", imdbUnofficialRoute);
 app.use("/crypto", cryptoRoute);
-app.use("/recommendation", recommendationRoute)
+app.use("/recommendation", recommendationRoute);
 app.get("/", (req, res) => {
   req.header("Access-Control-Allow-Origin", "http://localhost:3000");
   req.header("Access-Control-Request-Method", "http://localhost:3000");
