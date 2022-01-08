@@ -13,6 +13,8 @@ import ImdbUnoficial from "../pages/ImdbUnoficial";
 import CryptoMarket from "../pages/CryptoMarket";
 import Questionnaire from "../pages/Questionnaire";
 import { MovieNameRecommendation } from "../components/MovieDetails/MovieNameRecommendation";
+import TrendingMovies from "../components/TrendingMovies";
+import PopularMovies from "../pages/PopularMovies";
 
 const AppRoutes = () => {
   const { user } = useUser();
@@ -36,6 +38,9 @@ const AppRoutes = () => {
             path="/details"
             element={<MovieNameRecommendation movieName="Avatar" />}
           />
+          <Route
+            path="/popular"
+            element={<PopularMovies/>}/>
         </Routes>
       </div>
     </Router>
