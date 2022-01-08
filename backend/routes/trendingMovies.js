@@ -75,25 +75,6 @@ router.get("/week", async (req, res) => {
   }
 });
 
-async function getMovie(title) {
-  /*const promis = new Promise({});
-  ImdbUnofficial.find({title: title}, function (err, doc) {
-    if (doc.length > 0) {
-      promis.resolve(() => doc[0]);
-    } else {
-      axios.get("http://www.omdbapi.com/?t=" + title + "&apikey=2cebb1ae").then(async (resp) => {
-        return resp.data;
-      }).catch(err => console.log(err));
-    }
-  });
-  return promis;
-
-   */
-  axios.get("http://www.omdbapi.com/?t=" + title + "&apikey=2cebb1ae").then((resp) => {
-    return resp.data;
-  }).catch(err => console.log(err));
-}
-
 function reflect(promise){
   return promise.then(function(v){
         return v.data;

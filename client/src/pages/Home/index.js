@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { fetchTrendingMovies } from "../../apis";
-import { TabList, Tab, Tabs, TabPanels, TabPanel, css } from "@chakra-ui/react";
+import React, {useEffect, useState} from "react";
+import {css, Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
 import TrendingMovies from "../../components/TrendingMovies";
 import axios from "axios";
-import { useUser } from "../../context/UserContext";
+import {useUser} from "../../context/UserContext";
 import {Button} from "reactstrap";
 
 const Home = () => {

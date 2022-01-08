@@ -1,10 +1,8 @@
 import {Button, CardGroup, Input, Label} from "reactstrap";
 import {useState} from "react";
-import {callImdbUnofficial} from "../../apis/imdbUnofficial";
 import {ReactstrapCard} from "../../components/ReactstrapCards/Card";
 import axios from "axios";
-import {callImdbUnofficialSpecificFilm} from "../../apis/ImdbUnofficialSpecificFilm";
-import {getMovies, getMoviesFromImdb} from "../../utils/ExtractMovies";
+import {getMoviesFromImdb} from "../../utils/ExtractMovies";
 import {callOmdbApiById, callOmdbApiBySearch} from "../../apis/omdbapi";
 
 const ImdbUnoficial = () => {
