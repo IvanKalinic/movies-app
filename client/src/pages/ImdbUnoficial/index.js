@@ -1,19 +1,21 @@
-import { Button, CardGroup, Input, Label } from "reactstrap";
-import { useState } from "react";
-import { callImdbUnofficial } from "../../apis/imdbUnofficial";
+import { Button, CardGroup, Input } from "reactstrap";
+import { useState, useEffect } from "react";
 import { ReactstrapCard } from "../../components/ReactstrapCards/Card";
 import axios from "axios";
-import { callImdbUnofficialSpecificFilm } from "../../apis/ImdbUnofficialSpecificFilm";
-import { getMovies, getMoviesFromImdb } from "../../utils/ExtractMovies";
+import { getMoviesFromImdb } from "../../utils/ExtractMovies";
 import { callOmdbApiById, callOmdbApiBySearch } from "../../apis/omdbapi";
-import { Flex } from "@chakra-ui/react";
+import { Box, CircularProgress, Flex, Text } from "@chakra-ui/react";
+import imageStorage from "../../storage/ImageStorage";
+import MovieList from "../../components/MovieList/MovieList";
 
 const ImdbUnoficial = () => {
   const [search, setSearch] = useState("");
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const searchMovies = () => {
     if (!!search) {
+      setLoading(true);
       callOmdbApiBySearch(search)
         .then((response) => {
           if (response.data !== undefined) {
@@ -24,6 +26,7 @@ const ImdbUnoficial = () => {
                 console.log(res);
                 const movies = getMoviesFromImdb(res);
                 setMovies(movies);
+                setLoading(false);
                 axios
                   .post("http://localhost:5000/imdbUnofficial/save", movies)
                   .then((response) => console.log(response.data))
@@ -39,35 +42,39 @@ const ImdbUnoficial = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        height: "100vh",
+        backgroundImage: `url(${imageStorage.searchBackground})`,
+      }}
+    >
       <Flex
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
         mb="2"
       >
-        <Label style={{ marginTop: "8px" }}>Search movies</Label>
+        <Text fontSize="6xl" marginTop={80}>
+          Search movies
+        </Text>
         <Input
-          style={{ width: "500px" }}
+          style={{ maxWidth: "500px" }}
           value={search}
+          size="lg"
           onChange={(event) => setSearch(event.target.value)}
+          placeholder="Enter the movie title..."
+          autoFocus={true}
         />
+        <Button
+          style={{ width: "100px", marginTop: "10px", marginBottom: "40px" }}
+          onClick={() => searchMovies()}
+          color="primary"
+        >
+          Search
+        </Button>
+        {loading && <CircularProgress isIndeterminate color="#945887" />}
+        <MovieList movies={movies} />
       </Flex>
-      <Button
-        style={{ width: "100px", marginBottom: "10px" }}
-        onClick={() => searchMovies()}
-      >
-        Search
-      </Button>
-      <CardGroup>
-        {movies?.map((movie, index) => (
-          <ReactstrapCard
-            id={index}
-            title={movie?.title}
-            picture={movie?.image}
-          />
-        ))}
-      </CardGroup>
     </div>
   );
 };

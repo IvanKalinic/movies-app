@@ -25,4 +25,19 @@ router.post("/save", async (req, res) => {
     }
 });
 
+router.get("/findByTitle", async (req, resp) => {
+    const title = req.query.title;
+    console.log(title);
+
+    try {
+        ImdbUnofficial.findOne({title: title}, function (err, movie) {
+            resp.status(200).json(movie);
+        });
+    } catch (err) {
+        console.log(err);
+        resp.status(500).json(err);
+    }
+
+});
+
 module.exports = router;

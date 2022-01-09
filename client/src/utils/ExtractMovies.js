@@ -28,9 +28,9 @@ export function getMoviesFromImdb(responses) {
                 rating: data.imdbRating,
                 image: data.Poster,
                 plot: data.Plot,
-                actors: data.Actors,
+                actors: data.Actors?.split(", "),
                 director: data.Director,
-                genre: data.Genre,
+                genre: data.Genre?.split(", "),
                 writer: data.Writer
             }
             return movie

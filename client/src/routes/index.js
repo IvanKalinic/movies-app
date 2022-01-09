@@ -11,13 +11,12 @@ import Login from "../pages/Login";
 import { useUser } from "../context/UserContext";
 import ImdbUnoficial from "../pages/ImdbUnoficial";
 import CryptoMarket from "../pages/CryptoMarket";
-import Questionnaire from "../pages/Questionnaire";
-import { MovieNameRecommendation } from "../components/MovieDetails/MovieNameRecommendation";
+import PopularMovies from "../pages/PopularMovies";
+import MovieDetails from "../pages/MovieDetails";
 
 const AppRoutes = () => {
   const { user } = useUser();
 
-  console.log(user);
   return (
     <Router>
       <div>
@@ -26,7 +25,7 @@ const AppRoutes = () => {
           <Route
             path="/"
             element={
-              !user?.data.prefBool ? (
+              user && !user?.prefBool ? (
                 <Home />
               ) : user ? (
                 <ImdbUnoficial />
@@ -40,24 +39,9 @@ const AppRoutes = () => {
             element={user ? <Navigate to="/" /> : <Login />}
           />
           <Route path="/imdbUnoficial" element={<ImdbUnoficial />} />
-          {/* <Route
-            path="/questionnaire"
-            element={
-              user?.PrefProp ? (
-                <Questionnaire />
-              ) : user ? (
-                <ImdbUnoficial />
-              ) : (
-                <Login />
-              )
-            }
-          /> */}
-          {/*  */}
           <Route path="/crypto" element={user ? <CryptoMarket /> : <Login />} />
-          <Route
-            path="/details"
-            element={<MovieNameRecommendation movieName="Avatar" />}
-          />
+          <Route path="/details/:name" element={<MovieDetails />} />
+          <Route path="/popular" element={<PopularMovies />} />
         </Routes>
       </div>
     </Router>

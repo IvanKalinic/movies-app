@@ -1,12 +1,10 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import Github from "../../assets/img/github.png";
-import Facebook from "../../assets/img/facebook.png";
-import Google from "../../assets/img/google.png";
 import axios from "axios";
 import { useUser } from "../../context/UserContext";
 import "./index.scss";
 import { Input } from "@chakra-ui/react";
+import imageStorage from "../../storage/ImageStorage";
 
 const Login = () => {
   const [loginAccordion, setLoginAccordion] = useState(false);
@@ -74,16 +72,6 @@ const Login = () => {
     }
     return;
   };
-  /*const responseFacebook = (response) => {
-    console.log(response);
-    axios({
-      method: "POST",
-      url: "http://localhost:5000/auth/facebook",
-      data: {accessToken: response.accessToken, userId: response.userId}
-    }).then(response => {
-      console.log("Facebook login success, client side", response);
-    })
-  }*/
 
   return (
     <div className="login">
@@ -95,12 +83,12 @@ const Login = () => {
             onClick={github}
             style={{ marginRight: "2px" }}
           >
-            <img src={Github} alt="github" className="icon" />
+            <img src={imageStorage.github} alt="github" className="icon" />
             GitHub
           </div>
           <div className="login-button facebook" onClick={facebook}>
             <img
-              src={Facebook}
+              src={imageStorage.facebook}
               alt="facebook"
               className="icon"
               style={{ marginRight: "2px" }}
@@ -109,7 +97,7 @@ const Login = () => {
           </div>
           <div className="login-button google" onClick={google}>
             <img
-              src={Google}
+              src={imageStorage.google}
               alt="google"
               className="icon"
               style={{ marginRight: "2px" }}

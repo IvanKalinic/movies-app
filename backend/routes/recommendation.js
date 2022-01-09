@@ -12,4 +12,15 @@ router.get("/movie-name/:name", (req, res) => {
     });
 });
 
+router.get("/movie-other/:userId", (req, res) => {
+  recommendationService
+    .recommendForUser(req.params.userId)
+    .then((result) => {
+      res.json({ recommendedMovies: result });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
 module.exports = router;

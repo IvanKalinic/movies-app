@@ -3,7 +3,6 @@ const User = require("../models/User");
 
 router.post("/save", async (req, res) => {
   let user = req.body.user;
-  let email = user.data.email;
   let movies = req.body.movies;
   let directors = req.body.directors;
   let actors = req.body.actors;
@@ -21,7 +20,7 @@ router.post("/save", async (req, res) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   try {
-    const _user = { email: email };
+    const _user = { _id: user._id };
     let findUser = await User.findOne(_user);
     await User.updateOne(_user, { preferences: ObjJSON, prefBool: true });
     await findUser.save();

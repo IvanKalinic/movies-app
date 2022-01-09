@@ -74,7 +74,7 @@ const CategoryOptions = ({ startingIndex, categories }) => {
        user
      });
     setTimeout(() => {
-      navigate("/imdbUnoficial");
+      navigate("/popular");
     }, 2000);
   }
 
