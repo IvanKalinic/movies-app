@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,7 +16,14 @@ import MovieDetails from "../pages/MovieDetails";
 
 const AppRoutes = () => {
   const { user } = useUser();
+  console.log(user);
+  const prefBoolProp = useMemo(
+    () => (!user?.data ? user?.prefBool : user?.data.prefBool),
+    [user]
+  );
+  const prefBool = user ? prefBoolProp : false;
 
+  console.log(prefBool);
   return (
     <Router>
       <div>
@@ -25,7 +32,7 @@ const AppRoutes = () => {
           <Route
             path="/"
             element={
-              user && !user?.prefBool ? (
+              user && !prefBool ? (
                 <Home />
               ) : user ? (
                 <ImdbUnoficial />
