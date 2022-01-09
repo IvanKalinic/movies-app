@@ -10,15 +10,15 @@ const UserPreferenceRecommendation = ({ userId }) => {
     fetchRecommendationByUserPreference(userId).then((recommendedMovies) => {
       setRecommendedMovies(recommendedMovies);
     });
-  }, []);
+  }, [userId]);
 
   return (
     <div>
-      {recommendedMovies.length > 0 && (
+      {recommendedMovies?.length > 0 && (
         <>
-         <Text paddingStart={20} align={"left"} fontSize="4xl">
-          Maybe you will love some of these
-        </Text>
+          <Text paddingStart={20} align={"left"} fontSize="4xl">
+            Maybe you will love some of these
+          </Text>
           <MovieList movies={recommendedMovies} />
         </>
       )}

@@ -20,7 +20,7 @@ router.post("/save", async (req, res) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   try {
-    const _user = { _id: user._id };
+    const _user = { _id: !user.data ? user._id : user.data._id };
     let findUser = await User.findOne(_user);
     await User.updateOne(_user, { preferences: ObjJSON, prefBool: true });
     await findUser.save();

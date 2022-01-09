@@ -43,17 +43,14 @@ router.get(
   })
 );
 
-router.get(
-    "/facebook",
-    passport.authenticate("facebook")
-);
+router.get("/facebook", passport.authenticate("facebook"));
 
 router.get(
-    "/facebook/callback",
-    passport.authenticate("facebook", {
-      successRedirect: "http://localhost:3000",
-      failureRedirect: "/login/failed",
-    })
+  "/facebook/callback",
+  passport.authenticate("facebook", {
+    successRedirect: "http://localhost:3000",
+    failureRedirect: "/login/failed",
+  })
 );
 
 router.get(
