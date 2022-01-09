@@ -26,7 +26,7 @@ const AppRoutes = () => {
           <Route
             path="/"
             element={
-              user && !user?.prefBool ? (
+              !user?.data.prefBool ? (
                 <Home />
               ) : user ? (
                 <ImdbUnoficial />
