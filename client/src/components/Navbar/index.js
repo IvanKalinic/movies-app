@@ -9,7 +9,7 @@ const Navbar = ({ user }) => {
   return (
     <div className="navbar">
       <span className="logo">
-        <Link className="link" to="/imdbUnoficial">
+        <Link className="link" to={user ? "/imdbUnoficial" : "/"}>
           MyMovies
         </Link>
       </span>
@@ -43,7 +43,7 @@ const Navbar = ({ user }) => {
           </li>
         </ul>
       ) : (
-        <Link className="link" to="login">
+        <Link className="link" to="login" style={{ marginBottom: "8px" }}>
           Login
         </Link>
       )}
