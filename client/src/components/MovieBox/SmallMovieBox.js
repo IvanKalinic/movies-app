@@ -1,5 +1,6 @@
 import { Box, Flex, Image } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import imageStorage from "../../storage/ImageStorage";
 
 const SmallMovieBox = ({ item }) => {
   const navigate = useNavigate();
@@ -14,7 +15,13 @@ const SmallMovieBox = ({ item }) => {
       alignItems="center"
       onClick={() => openDetailsPage()}
     >
-      <Image src={item?.image} alt="img" boxSize="80%" borderRadius={8} />
+      <Image
+        src={item?.image}
+        fallbackSrc={imageStorage.moviePlaceholder}
+        alt="img"
+        boxSize="80%"
+        borderRadius={8}
+      />
       <Box>
         <Box fontWeight="semibold">{item?.title}</Box>
       </Box>
